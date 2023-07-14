@@ -23,4 +23,4 @@
 
 Deployed Page: [Github Deployed Page]()
 
-Github repo: [API-Coding-Quiz]()
+Github repo: [Work-Day-Scheduler]()
