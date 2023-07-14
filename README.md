@@ -1,6 +1,6 @@
 # Work-Day-Scheduler
 
-
+*work in progress*
 
 ## Description
 
@@ -12,6 +12,7 @@
 ## Screenshot
 
 ![alt work day scheduler]()
+
 ![alt -----]()
 
 ## Usage
