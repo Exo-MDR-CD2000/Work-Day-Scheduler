@@ -1,5 +1,5 @@
 //DOM elements
-var currentDay = $('#currentDay');
+var currentDay = $('#currentDay'); // HTML element for the current day
 
 
 var hour9 = $('#hour-9');
@@ -12,7 +12,9 @@ var hour15 = $('#hour-3');
 var hour16 = $('#hour-4');
 var hour17 = $('#hour-5');
 
+var saveBtn = $('.saveBtn'); //HTML element for the save button
 
+// -----------------DONE BELOW-----------------
 
 //display current date using var currentDay and have the time dynamically update without refreshing the page
 
@@ -29,7 +31,7 @@ setInterval(updateTime, 1000); //this will update the time every second without 
 });
 
 
-
+// -----------------DONE ABOVE-----------------
 
 
 
