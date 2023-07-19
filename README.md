@@ -25,3 +25,7 @@
 Deployed Page: [Github Deployed Page]()
 
 Github repo: [Work-Day-Scheduler]()
+
+
+
+https://stackoverflow.com/questions/4069982/document-getelementbyid-vs-jquery

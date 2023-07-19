@@ -1,4 +1,15 @@
 //DOM elements
+var hour9 = $('#hour-9');
+var hour10 = $('#hour-10');
+var hour11 = $('#hour-11');
+var hour12 = $('#hour-12');
+var hour13 = $('#hour-1');
+var hour14 = $('#hour-2');
+var hour15 = $('#hour-3');
+var hour16 = $('#hour-4');
+var hour17 = $('#hour-5');
+
+
 
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
@@ -31,3 +42,4 @@ $(function () {
 // the event listener will be for the save button. figure out how to use "this" to get the id of the time block that the button is in.
 
 //I need js to look at the HTML ID of the time block and then look at that ID's sibling (the textarea) and get the value of the textarea (where the text is written)
+//something like 
