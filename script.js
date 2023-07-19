@@ -12,6 +12,8 @@ var hour15 = $('#hour-3');
 var hour16 = $('#hour-4');
 var hour17 = $('#hour-5');
 
+//how about instead of creating vars for each hour text area, i just use "this" to get the value of that specific textarea when the save button is clicked? it would reduce the amount of code needed and make it more dynamic.
+
 var saveBtn = $('.saveBtn'); //HTML element for the save button
 
 // -----------------DONE BELOW-----------------
@@ -35,7 +37,7 @@ setInterval(updateTime, 1000); //this will update the time every second without 
 
 
 
-
+//so I have those 
 
 
 
