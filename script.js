@@ -1,4 +1,7 @@
 //DOM elements
+var currentDay = $('#currentDay');
+
+
 var hour9 = $('#hour-9');
 var hour10 = $('#hour-10');
 var hour11 = $('#hour-11');
@@ -8,6 +11,31 @@ var hour14 = $('#hour-2');
 var hour15 = $('#hour-3');
 var hour16 = $('#hour-4');
 var hour17 = $('#hour-5');
+
+
+
+//display current date using var currentDay and have the time dynamically update without refreshing the page
+
+$(function () { // this is the function that will display the current date and time as well as update the time without refreshing the page every second
+
+  function updateTime() { // another function made within the first function to display the current date and time
+  currentDay.text(dayjs().format('dddd, MMMM D, YYYY, h:mm:ss a'));
+}
+
+updateTime(); // this calls on the updateTime function to display the current date and time
+
+setInterval(updateTime, 1000); //this will update the time every second without refreshing the page
+
+});
+
+
+
+
+
+
+
+
+
 
 
 
