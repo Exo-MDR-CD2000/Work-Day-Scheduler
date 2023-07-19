@@ -61,9 +61,11 @@ $(function () {
   // function? How can DOM traversal be used to get the "hour-x" id of the
   // time-block containing the button that was clicked? How might the id be
   // useful when saving the description in local storage?
-  saveBtn.on('click', function() {
-    var timeBlock = $(this).parent().attr('id');
-    var textArea = $(this).siblings('.description').val();
+
+
+  saveBtn.on('click', function() { //this is the event listener for the save button
+    var timeBlock = $(this).parent().attr('id'); // this creates a variable that will get the id of the time block that the save button is in by looking at the parent of the save button and getting the id of the parent
+    var textArea = $(this).siblings('.description').val(); //this variable will get the value of the textarea that the save button is in by looking at the sibling of the save button and getting the value of the sibling (the textarea)
     localStorage.setItem(timeBlock, textArea); //this should save the  value of the textarea in local storage using the id of the time block as the key and the value of the textarea as the value.
   });
 
@@ -78,6 +80,15 @@ $(function () {
   // past, present, and future classes? How can Day.js be used to get the
   // current hour in 24-hour time?
   //
+  $(function () {
+    var currentHour12 = dayjs().format('h, a'); //this creates a variable that will get the current hour in 12 hour time. the .format parameters in this case will display the hour and am/pm.
+    var currentHour24 = dayjs().hour(); //this makes a var that displays the current hour in 24 hour format which seems to be the default method. too general imo compared to .format
+
+    console.log(currentHour12); //this is just to check that the current hour is being logged in the console
+    console.log(currentHour24); //this is just to check that the current hour is being logged in the console
+  });
+
+
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
