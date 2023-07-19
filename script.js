@@ -2,15 +2,15 @@
 var currentDay = $('#currentDay'); // HTML element for the current day
 
 
-var hour9 = $('#hour-9');
-var hour10 = $('#hour-10');
-var hour11 = $('#hour-11');
-var hour12 = $('#hour-12');
-var hour13 = $('#hour-1');
-var hour14 = $('#hour-2');
-var hour15 = $('#hour-3');
-var hour16 = $('#hour-4');
-var hour17 = $('#hour-5');
+// var hour9 = $('#hour-9');
+// var hour10 = $('#hour-10');
+// var hour11 = $('#hour-11');
+// var hour12 = $('#hour-12');
+// var hour13 = $('#hour-1');
+// var hour14 = $('#hour-2');
+// var hour15 = $('#hour-3');
+// var hour16 = $('#hour-4');
+// var hour17 = $('#hour-5');
 
 var saveBtn = $('.saveBtn'); //HTML element for the save button
 
@@ -45,12 +45,6 @@ setInterval(updateTime, 1000); //this will update the time every second without 
 
 
 
-//so I have those 
-
-
-
-
-
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
@@ -69,7 +63,8 @@ $(function () {
     localStorage.setItem(timeBlock, textArea); //this should save the  value of the textarea in local storage using the id of the time block as the key and the value of the textarea as the value.
   });
 
-  //YES IT WORKS
+//use localStorage.getItem to get the value of the textarea and set it to the textarea element
+  
 
 
 
@@ -80,16 +75,34 @@ $(function () {
   // current hour in 24-hour time?
   //
   $(function () {
-    var currentHour12 = dayjs().format('h, a'); //this creates a variable that will get the current hour in 12 hour time. the .format parameters in this case will display the hour and am/pm.
-    var currentHour24 = dayjs().hour(); //this makes a var that displays the current hour in 24 hour format which seems to be the default method. too general imo compared to .format
+    var currentHour12 = dayjs().format('h'); //this creates a variable that will get the current hour in 12 hour time. the .format parameters in this case will display the hour and am/pm.
+    //var currentHour24 = dayjs().hour(); //this makes a var that displays the current hour in 24 hour format which seems to be the default method. too general imo compared to .format
 
     console.log(currentHour12); //this is just to check that the current hour is being logged in the console
-    console.log(currentHour24); //this is just to check that the current hour is being logged in the console
+    //console.log(currentHour24); //this is just to check that the current hour is being logged in the console
     
     //use .past, .present, and .future to change the color of the time blocks based on the current time
+    //what I need to dynamically change is the .textarea class and compare it to that textarea's id in an if statement
     //use currentHour12 to compare to the id of the time block to determine if it is past, present, or future
+    $('.time-block').each(function() { //this is a for loop that will loop through each textarea element
+      var currentTimeBlock = $(this).parent().attr('id'); //this creates a variable that will get the id of the time block that the textarea is in by looking at the parent of the textarea and getting the id of the parent
+      var currentTimeBlockHour = parseInt(currentTimeBlock); //this creates a variable that will convert the id of the time block from a string to an integer. Example: "hour-9" will be converted to 9
+      console.log(currentTimeBlockHour);
 
-    
+      //now make the if statement
+
+      if (currentTimeBlockHour < currentHour12) {
+        $(this).addClass('past');
+      } else if (currentTimeBlockHour === currentHour12) {
+        $(this).addClass('present');
+      } else {
+        $(this).addClass('future');
+      }
+
+//currentTimeBlock is undefined. check logic of the parents and siblings.
+      
+    });
+
   });
 
 
