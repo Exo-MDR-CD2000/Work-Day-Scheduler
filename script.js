@@ -12,9 +12,17 @@ var hour15 = $('#hour-3');
 var hour16 = $('#hour-4');
 var hour17 = $('#hour-5');
 
-//how about instead of creating vars for each hour text area, i just use "this" to get the value of that specific textarea when the save button is clicked? it would reduce the amount of code needed and make it more dynamic.
-
 var saveBtn = $('.saveBtn'); //HTML element for the save button
+
+
+//more breaking down what needs to happen
+
+//how about instead of creating vars for each hour text area, i just use "this" to get the value of that specific textarea when the save button is clicked? it would reduce the amount of code needed and make it more dynamic.
+//using jquery to select parents and siblings of the save button to get the value of the textarea that the save button is in.
+//no need to make a for loop statement i dont think since I won't be dynamically making new elements. The elements are already there and working.
+//just make jquery select the parent of the save button and then select the sibling of the save button and get the value of the sibling (the textarea)
+//then save it in local storage using the id of the time block as the key and the value of the textarea as the value.
+
 
 // -----------------DONE BELOW-----------------
 
@@ -53,7 +61,17 @@ $(function () {
   // function? How can DOM traversal be used to get the "hour-x" id of the
   // time-block containing the button that was clicked? How might the id be
   // useful when saving the description in local storage?
-  //
+  saveBtn.on('click', function() {
+    var timeBlock = $(this).parent().attr('id');
+    var textArea = $(this).siblings('.description').val();
+    localStorage.setItem(timeBlock, textArea); //this should save the  value of the textarea in local storage using the id of the time block as the key and the value of the textarea as the value.
+  });
+
+  //YES IT WORKS
+
+
+
+
   // TODO: Add code to apply the past, present, or future class to each time
   // block by comparing the id to the current hour. HINTS: How can the id
   // attribute of each time-block be used to conditionally add or remove the
