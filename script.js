@@ -1,3 +1,5 @@
+//DOM elements
+
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
@@ -27,3 +29,5 @@ $(function () {
 
 
 // the event listener will be for the save button. figure out how to use "this" to get the id of the time block that the button is in.
+
+//I need js to look at the HTML ID of the time block and then look at that ID's sibling (the textarea) and get the value of the textarea (where the text is written)
