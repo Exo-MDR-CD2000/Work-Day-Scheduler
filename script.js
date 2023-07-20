@@ -87,7 +87,8 @@ $(function () {
     $('.time-block').each(function() { //this is a for loop that will loop through each textarea element
       var currentTimeBlock = $(this).parent().attr('id'); //this creates a variable that will get the id of the time block that the textarea is in by looking at the parent of the textarea and getting the id of the parent
       var currentTimeBlockHour = parseInt(currentTimeBlock); //this creates a variable that will convert the id of the time block from a string to an integer. Example: "hour-9" will be converted to 9
-      console.log(currentTimeBlockHour);
+      console.log('Element ID: ', id);
+      //console.log(currentTimeBlockHour);
 
       //now make the if statement
 
