@@ -24,7 +24,7 @@ var saveBtn = $('.saveBtn'); //HTML element for the save button
 //then save it in local storage using the id of the time block as the key and the value of the textarea as the value.
 
 
-// -----------------DONE BELOW-----------------
+// -----------------DISPLAY TIME DONE BELOW-----------------
 
 //display current date using var currentDay and have the time dynamically update without refreshing the page
 
@@ -41,7 +41,7 @@ setInterval(updateTime, 1000); //this will update the time every second without 
 });
 console.log(dayjs().format('dddd, MMMM D, YYYY, h:mm:ss a'));
 
-// -----------------DONE ABOVE-----------------
+// -----------------DISPLAY TIME DONE ABOVE-----------------
 
 
 
@@ -62,6 +62,10 @@ $(function () {
     var textArea = $(this).siblings('.description').val(); //this variable will get the value of the textarea that the save button is in by looking at the sibling of the save button and getting the value of the sibling (the textarea)
     localStorage.setItem(timeBlock, textArea); //this should save the  value of the textarea in local storage using the id of the time block as the key and the value of the textarea as the value.
   });
+
+
+  //---------WORKING SAVE BUTTON ABOVE-----------------
+
 
 //use localStorage.getItem to get the value of the textarea and set it to the textarea element
   
@@ -122,16 +126,18 @@ $(function () {
   // attribute of each time-block be used to do this?
   //
 
-  $('time-block').each(function() { //select the time block class and loop through each time block with the .each method
+  $('.time-block').each(function() { //select the time block class and loop through each time block with the .each method
     var timeBlockId = $(this).attr('id'); //make a var that will get the id of the time block
     var savedText = localStorage.getItem(timeBlockId); //getItem the value of the textarea and set it to the textarea element
     if (savedText !== null) { //if there is data saved in the localStorage
       $(this).find('.description').val(savedText); //then set the value of the textarea to the value of the textarea in localStorage
     }
-
+    console.log(savedText);
     //it pretty much allows the user to refresh the page and have their notes still saved in localStorage. This is retrieval of data from localStorage.
     //the data will disappear if the user closes the tab or the browser but localStorage will still be accessible in inspect.
 });
+
+//-----------------WORKING LOCAL STORAGE ABOVE-----------------
 
 
 });
