@@ -88,7 +88,18 @@ $(function () {
       var timeBlockHour = $(this).attr('id').replace('hour-', ''); //this creates a variable that will get the id of the time block that the save button is in by looking at the parent of the save button and getting the id of the parent
       console.log(timeBlockHour);
     //i believe this isn't doing anything because it's not comparing against anything
- 
+    $(this).removeClass('past present future');
+      
+      var timeBlockHourObj = dayjs(timeBlockHour, 'hA');
+      console.log(timeBlockHourObj); //this works and displays the time block hour in console like 9AM, 10AM, etc.
+
+      if (timeBlockHourObj.isBefore(currentHour12)) {
+        $(this).addClass('past');
+      } else if (timeBlockHourObj.isSame(currentHour12)) {
+        $(this).addClass('present');
+      } else {
+        $(this).addClass('future');
+      } 
       // if (timeBlockHour < currentHour12) {
       //   $(this).removeClass('present future').addClass('past');
       // } else if (timeBlockHour === currentHour12) {
