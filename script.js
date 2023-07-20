@@ -39,7 +39,7 @@ updateTime(); // this calls on the updateTime function to display the current da
 setInterval(updateTime, 1000); //this will update the time every second without refreshing the page
 
 });
-
+console.log(dayjs().format('dddd, MMMM D, YYYY, h:mm:ss a'));
 
 // -----------------DONE ABOVE-----------------
 
