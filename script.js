@@ -130,6 +130,7 @@ $(function () {
     }
 
     //it pretty much allows the user to refresh the page and have their notes still saved in localStorage. This is retrieval of data from localStorage.
+    //the data will disappear if the user closes the tab or the browser but localStorage will still be accessible in inspect.
 });
 
 
