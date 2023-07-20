@@ -75,7 +75,7 @@ $(function () {
   // current hour in 24-hour time?
   //
   $(function () {
-    var currentHour12 = dayjs().format('h'); //this creates a variable that will get the current hour in 12 hour time. the .format parameters in this case will display the hour and am/pm.
+    var currentHour12 = dayjs().format('hA'); //this creates a variable that will get the current hour in 12 hour time. the .format parameters in this case will display the hour and am/pm. hA = hour and am/pm in caps
     //var currentHour24 = dayjs().hour(); //this makes a var that displays the current hour in 24 hour format which seems to be the default method. too general imo compared to .format
 
     console.log(currentHour12); //this is just to check that the current hour is being logged in the console
@@ -84,25 +84,22 @@ $(function () {
     //use .past, .present, and .future to change the color of the time blocks based on the current time
     //what I need to dynamically change is the .textarea class and compare it to that textarea's id in an if statement
     //use currentHour12 to compare to the id of the time block to determine if it is past, present, or future
-    $('.time-block').each(function() { //this is a for loop that will loop through each textarea element
-      var currentTimeBlock = $(this).parent().attr('id'); //this creates a variable that will get the id of the time block that the textarea is in by looking at the parent of the textarea and getting the id of the parent
-      var currentTimeBlockHour = parseInt(currentTimeBlock); //this creates a variable that will convert the id of the time block from a string to an integer. Example: "hour-9" will be converted to 9
-      console.log('Element ID: ', id);
-      //console.log(currentTimeBlockHour);
-
-      //now make the if statement
-
-      if (currentTimeBlockHour < currentHour12) {
-        $(this).addClass('past');
-      } else if (currentTimeBlockHour === currentHour12) {
-        $(this).addClass('present');
+    $('.time-block').each(function() { //this is a for loop that will loop through each time block
+      var timeBlockHour = $(this).attr('id').replace('hour-', ''); //this creates a variable that will get the id of the time block that the save button is in by looking at the parent of the save button and getting the id of the parent
+      
+      if (timeBlockHour < currentHour12) {
+        $(this).removeClass('present future').addClass('past');
+      } else if (timeBlockHour === currentHour12) {
+        $(this).removeClass('past future').addClass('present');
       } else {
-        $(this).addClass('future');
+        $(this).removeClass('past present').addClass('future');
       }
+    });
 
+      //var timeBlockHour = parseInt(currentTimeBlock.replace('hour-', ''));
 //currentTimeBlock is undefined. check logic of the parents and siblings.
       
-    });
+  //it is the '.time-block' class and not the id of the time block that needs to be changed. the id of the time block is used to determine if it is past, present, or future.
 
   });
 
