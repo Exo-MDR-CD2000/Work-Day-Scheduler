@@ -113,31 +113,94 @@ $(function () {
     //   // }
     // });
 
-    $(function () {
-      var currentHour24 = dayjs().hour(); // Get the current hour in 24-hour format (0 to 23)
-      var currentHour12 = dayjs().format('hA');
+    // $(function () {
+    //   var currentHour24 = dayjs().hour(); // Get the current hour in 24-hour format (0 to 23)
+    //   var currentHour12 = dayjs().format('hA');
     
-      // Loop through each time-block element
-      $('[id^="hour-"]').each(function () {
-        var timeBlockId = $(this).attr('id');
-        var timeBlockHour = parseInt(timeBlockId.replace('hour-', ''));
-        console.log(timeBlockHour);
-        console.log(currentHour12);
+    //   // Loop through each time-block element
+    //   $('[id^="hour-"]').each(function () {
+    //     var timeBlockId = $(this).attr('id');
+    //     var timeBlockHour = parseInt(timeBlockId.replace('hour-', ''));
+    //     console.log(timeBlockHour);
+    //     console.log(currentHour12);
     
-        // Remove classes that don't apply to the current time
-        $(this).removeClass('past present future');
+    //     // Remove classes that don't apply to the current time
+    //     $(this).removeClass('past present future');
     
-        // Compare the time block's hour with the current hour and add the appropriate class
-        if (timeBlockHour < currentHour24) {
-          $(this).addClass('past');
-        } else if (timeBlockHour === currentHour24) {
-          $(this).addClass('present');
-        } else {
-          $(this).addClass('future');
-        }
-      });
-    });
+    //     // Compare the time block's hour with the current hour and add the appropriate class
+    //     if (timeBlockHour < currentHour24) {
+    //       $(this).addClass('past');
+    //     } else if (timeBlockHour === currentHour24) {
+    //       $(this).addClass('present');
+    //     } else {
+    //       $(this).addClass('future');
+    //     }
+    //   });
+    // });
 
+
+
+//  $(function () {
+//   var currentHour24 = dayjs().hour(); // Get the current hour in 24-hour format (0 to 23)
+//   var currentHour12 = dayjs().format('hA');
+//   console.log(currentHour12);
+//   currentHour12.split("PM"); // Split the string at "PM" and assign the result to currentHour12
+//   console.log(currentHour12);
+
+//   $('[id^="hour-"]').each(function () {
+//     var timeBlockId = $(this).attr('id');
+//     var timeBlockHour = parseInt(timeBlockId.replace('hour-', ''));
+//     console.log(timeBlockHour);
+//     var currHourNum = parseInt(currentHour12[0]);
+
+//     $(this).removeClass('past present future');
+
+//     if (timeBlockHour < currHourNum) {
+//       $(this).addClass('past');
+//     } else if (timeBlockHour === currHourNum) {
+//       $(this).addClass('present');
+//     } else {
+//       $(this).addClass('future');
+//     }
+//   });
+// });
+
+
+$(function () {
+  var currentHour24 = dayjs().hour(); // Get the current hour in 24-hour format (0 to 23)
+  console.log(currentHour24);
+
+  $('[id^="hour-"]').each(function () { //this selects any id that starts with "hour-" and loops through each one
+    var timeBlockId = $(this).attr('id'); //this creates a variable that will get the id of the time block that the save button is in by looking at the parent of the save button and getting the id of the parent
+    var timeBlockHour = parseInt(timeBlockId.replace('hour-', '')); //this var will replace the "hour-" in the id with nothing and then parse the string into an integer
+    console.log(timeBlockHour); //this is just to check that the time block hour is being logged in the console
+
+
+    $(this).removeClass('past present future'); //removes all classes from the time block. I could have removed them 
+                                                //from the html but this works too.
+
+
+    if (timeBlockHour < currentHour24) { //the if statement that will compare the time block hour to the current hour
+      $(this).addClass('past');
+    } else if (timeBlockHour === currentHour24) {
+      $(this).addClass('present');
+    } else {
+      $(this).addClass('future');
+    }
+  });
+});
+
+//After messaging with the same tutor, he told me that it would be a bit more easier to understand 
+//if I changed the way I approached the time itself. I went from the 12 hour format to the 24 hour format.
+//Doing this allowed me to use a number comparison which dayjs can actually understand. I was embrassed to admit that
+//I didn't know how the 24 hour format worked (military time) but I found out that it doesn't require the AM or PM.
+//This made it more ideal for the comparison while also shortening the code.
+//I could have attempted to figure out how to use the 12 hour format but I was hitting mental roadblocks and I almost gave up.
+
+//-----------------WORKING TIME BLOCK COLOR CHANGE ABOVE-----------------
+
+//TODO 7-20-2023 @ 11:56AM: Received help from a tutor on the code above but it still is not working correctly. I reverted back to the code I had before.
+    
     //TODO: I know that the fundamental logic for this comparison is flawed because it's only looking at the number itself for the comparison (from the console log I made) so anything after 1PM will always be labeled as in the past.
     //I just want it too look at the 1PM or whatever time the ID says against the current time and then add the class of past, present, or future based on that comparison.
 
@@ -177,4 +240,4 @@ $(function () {
 // the event listener will be for the save button. figure out how to use "this" to get the id of the time block that the button is in.
 
 //I need js to look at the HTML ID of the time block and then look at that ID's sibling (the textarea) and get the value of the textarea (where the text is written)
-//something like 
+//something like
