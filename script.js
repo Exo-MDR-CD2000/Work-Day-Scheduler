@@ -121,7 +121,18 @@ $(function () {
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
   //
-  // TODO: Add code to display the current date in the header of the page.
+
+  $('time-block').each(function() { //select the time block class and loop through each time block with the .each method
+    var timeBlockId = $(this).attr('id'); //make a var that will get the id of the time block
+    var savedText = localStorage.getItem(timeBlockId); //getItem the value of the textarea and set it to the textarea element
+    if (savedText !== null) { //if there is data saved in the localStorage
+      $(this).find('.description').val(savedText); //then set the value of the textarea to the value of the textarea in localStorage
+    }
+
+    //it pretty much allows the user to refresh the page and have their notes still saved in localStorage. This is retrieval of data from localStorage.
+});
+
+
 });
 
 
