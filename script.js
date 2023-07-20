@@ -88,30 +88,54 @@ $(function () {
     //use .past, .present, and .future to change the color of the time blocks based on the current time
     //what I need to dynamically change is the .textarea class and compare it to that textarea's id in an if statement
     //use currentHour12 to compare to the id of the time block to determine if it is past, present, or future
-    $('.time-block').each(function() { //this is a for loop that will loop through each time block
-      var timeBlockHour = $(this).attr('id').replace('hour-', ''); //this creates a variable that will get the id of the time block that the save button is in by looking at the parent of the save button and getting the id of the parent
-      console.log(timeBlockHour);
-    //i believe this isn't doing anything because it's not comparing against anything
-    $(this).removeClass('past present future');
+    // $('.time-block').each(function() { //this is a for loop that will loop through each time block
+    //   var timeBlockHour = $(this).attr('id').replace('hour-', ''); //this creates a variable that will get the id of the time block that the save button is in by looking at the parent of the save button and getting the id of the parent
+    //   console.log(timeBlockHour);
+    // //i believe this isn't doing anything because it's not comparing against anything
+    // $(this).removeClass('past present future');
       
-      var timeBlockHourObj = dayjs(timeBlockHour, 'hA');
-      console.log(timeBlockHourObj); //this works and displays the time block hour in console like 9AM, 10AM, etc.
+    //   var timeBlockHourObj = dayjs(timeBlockHour, 'hA');
+    //   console.log(timeBlockHourObj); //this works and displays the time block hour in console like 9AM, 10AM, etc.
 
-      if (timeBlockHourObj.isBefore(currentHour12)) {
-        $(this).addClass('past');
-      } else if (timeBlockHourObj.isSame(currentHour12)) {
-        $(this).addClass('present');
-      } else {
-        $(this).addClass('future');
-      } 
-      // if (timeBlockHour < currentHour12) {
-      //   $(this).removeClass('present future').addClass('past');
-      // } else if (timeBlockHour === currentHour12) {
-      //   $(this).removeClass('past future').addClass('present');
-      // } else {
-      //   $(this).removeClass('past present').addClass('future');
-      // }
+    //   if (timeBlockHourObj.isBefore(currentHour12)) {
+    //     $(this).addClass('past');
+    //   } else if (timeBlockHourObj.isSame(currentHour12)) {
+    //     $(this).addClass('present');
+    //   } else {
+    //     $(this).addClass('future');
+    //   } 
+    //   // if (timeBlockHour < currentHour12) {
+    //   //   $(this).removeClass('present future').addClass('past');
+    //   // } else if (timeBlockHour === currentHour12) {
+    //   //   $(this).removeClass('past future').addClass('present');
+    //   // } else {
+    //   //   $(this).removeClass('past present').addClass('future');
+    //   // }
+    // });
+
+    $(function () {
+      var currentHour24 = dayjs().hour(); // Get the current hour in 24-hour format (0 to 23)
+    
+      // Loop through each time-block element
+      $('[id^="hour-"]').each(function () {
+        var timeBlockId = $(this).attr('id');
+        var timeBlockHour = parseInt(timeBlockId.replace('hour-', ''));
+    
+        // Remove classes that don't apply to the current time
+        $(this).removeClass('past present future');
+    
+        // Compare the time block's hour with the current hour and add the appropriate class
+        if (timeBlockHour < currentHour24) {
+          $(this).addClass('past');
+        } else if (timeBlockHour === currentHour24) {
+          $(this).addClass('present');
+        } else {
+          $(this).addClass('future');
+        }
+      });
     });
+
+    //TODO: Look at the code above tomorrow and explain to self why it is working instead of the other attempts made.
 
       //var timeBlockHour = parseInt(currentTimeBlock.replace('hour-', ''));
 //currentTimeBlock is undefined. check logic of the parents and siblings.
