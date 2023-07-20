@@ -120,6 +120,7 @@ $(function () {
       $('[id^="hour-"]').each(function () {
         var timeBlockId = $(this).attr('id');
         var timeBlockHour = parseInt(timeBlockId.replace('hour-', ''));
+        console.log(timeBlockHour);
     
         // Remove classes that don't apply to the current time
         $(this).removeClass('past present future');
