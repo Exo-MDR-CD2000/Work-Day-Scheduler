@@ -29,6 +29,6 @@ Type in your task for the hour and click the save button to save your task. The 
 
 ## Deployment Link
 
-Deployed Page: [Github Deployed Page]()
+Deployed Page: [Github Deployed Page](https://exo-mdr-cd2000.github.io/Work-Day-Scheduler/)
 
-Github repo: [Work-Day-Scheduler]()
+Github repo: [Work-Day-Scheduler](https://github.com/Exo-MDR-CD2000/Work-Day-Scheduler)
