@@ -1,6 +1,6 @@
 # Work-Day-Scheduler
 
-*work in progress*
+*Add some basic notes and save them during your 9 to 5 job!*
 
 ## Description
 
