@@ -20,7 +20,7 @@ The goal was to add jquery to an existing site that allows the user to save task
 And of course, the recent mini project we reviewed in class.
 ## Screenshot
 
-![alt work day scheduler](./assets/fixed%20version.PNG)
+![alt work day scheduler](./images/Work-Day-Scheduler.png)
 
 ## Usage
 
