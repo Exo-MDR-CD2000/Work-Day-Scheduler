@@ -115,12 +115,14 @@ $(function () {
 
     $(function () {
       var currentHour24 = dayjs().hour(); // Get the current hour in 24-hour format (0 to 23)
+      var currentHour12 = dayjs().format('hA');
     
       // Loop through each time-block element
       $('[id^="hour-"]').each(function () {
         var timeBlockId = $(this).attr('id');
         var timeBlockHour = parseInt(timeBlockId.replace('hour-', ''));
         console.log(timeBlockHour);
+        console.log(currentHour12);
     
         // Remove classes that don't apply to the current time
         $(this).removeClass('past present future');
@@ -136,7 +138,8 @@ $(function () {
       });
     });
 
-    //TODO: Look at the code above tomorrow and explain to self why it is working instead of the other attempts made.
+    //TODO: I know that the fundamental logic for this comparison is flawed because it's only looking at the number itself for the comparison (from the console log I made) so anything after 1PM will always be labeled as in the past.
+    //I just want it too look at the 1PM or whatever time the ID says against the current time and then add the class of past, present, or future based on that comparison.
 
       //var timeBlockHour = parseInt(currentTimeBlock.replace('hour-', ''));
 //currentTimeBlock is undefined. check logic of the parents and siblings.
