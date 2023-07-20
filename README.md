@@ -4,7 +4,7 @@
 
 ## Description
 
-The goal was to add jquery to an existing site that allows the user to save tasks for each hour of the day. I had to lookup documentation for both Jquery and dayjs because of the time and date aspect to this assignment. The site is almost fully functional with persistent localstorage even after closing the page. The current date and time is also functional and is displayed at the top of the page. The current hour is supposed to be highlighted in red, the past hours in gray, and the future hours in green. I am still figuring out how to fix this issue. I still need to look into how dayjs makes comparisons against other times.
+The goal was to add jquery to an existing site that allows the user to save tasks for each hour of the day. I had to lookup documentation for both Jquery and dayjs because of the time and date aspect to this assignment. The site isfully functional with persistent localstorage even after closing the page. The current date and time is also functional and is displayed at the top of the page. The current hour is supposed to be highlighted in red, the past hours in gray, and the future hours in green. I did have trouble with this part of the code mainly because I wan putting extra unecessary work in using the 12 hour format. After some help from a tutor, I realized that using the 24 hour format would be a much simpler way of doing things since it does not use AM or PM. Thus, the CSS color styles are appropriately applied based on the current hour of the day.
 
 
 [Dayjs Docs](https://day.js.org/docs/en/display/difference)
@@ -20,9 +20,7 @@ The goal was to add jquery to an existing site that allows the user to save task
 And of course, the recent mini project we reviewed in class.
 ## Screenshot
 
-![alt work day scheduler]()
-
-![alt -----]()
+![alt work day scheduler](./assets/fixed%20version.PNG)
 
 ## Usage
 
