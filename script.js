@@ -86,18 +86,9 @@ $(function () {
     //use currentHour12 to compare to the id of the time block to determine if it is past, present, or future
     $('.time-block').each(function() { //this is a for loop that will loop through each time block
       var timeBlockHour = $(this).attr('id').replace('hour-', ''); //this creates a variable that will get the id of the time block that the save button is in by looking at the parent of the save button and getting the id of the parent
-      
-    //i believe this isn't doing anything because it's not comparing against anything
-
-      if (timeBlockHour.isBefore(currentHour12)) {
-        $(this).removeClass('present future');
-        } else if (timeBlockHour.isSame(currentHour12)) {
-          $(this).removeClass('past future');
-        } else {
-          $(this).removeClass('past present');
-        }
       console.log(timeBlockHour);
-      
+    //i believe this isn't doing anything because it's not comparing against anything
+ 
       // if (timeBlockHour < currentHour12) {
       //   $(this).removeClass('present future').addClass('past');
       // } else if (timeBlockHour === currentHour12) {
